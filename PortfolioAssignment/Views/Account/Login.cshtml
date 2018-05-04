@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Log In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using PortfolioAssignment.ViewModels
+
+@model LoginViewModel
+
+<h2>Log in with your account</h2>
+<hr />
+@using (Html.BeginForm( new { @class = "form-group" }))
+{
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+
+    @Html.LabelFor(m => m.Password)
+    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+    <br />
+    <input type="submit" value="Log in" class="btn btn-primary" />
+}
