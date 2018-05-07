@@ -17,4 +17,4 @@ namespace PortfolioAssignment.Models
 
         public virtual List<Comment> Comments { get; set; }
     }
-}
+} 

@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Blog";
+}
+@model PortfolioAssignment.Models.Post
+
+<div class="card card-body">
+    <h4>Date: @Model.PostDate</h4>
+    <p>Content: @Model.Content</p>
+</div>
+<div class="card card-body">
+    <form action="/Posts/EditConfirm" method="post">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3">
+                <label>Alter Date:</label>
+                <input type="datetime" name="time" value="@Model.PostDate" /> 
+            </div>
+            <div class="col-sm-7">
+                <label>Alter Blog Post Content:</label><br />
+                <textarea name="content" rows="5" cols="80" value="@Model.Content"></textarea>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
