@@ -1,7 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Blog";
 }
-@model 
+@model IEnumerable<PortfolioAssignment.Models.Post>
+
+<br />
+<h3>Welcome to My Blog</h3>
+<br />
+
 @if (User.Identity.IsAuthenticated)
 {
     <div class="card card-body">
@@ -19,11 +24,22 @@
         </div>
     </div>
 }
-@foreach (var post in Model)
+@if (Model.Any())
 {
-    <div class="card card-body">
-        <h4 class="card-title">post.</h4>
+    @foreach (var post in Model)
+    {
+        <div class="card card-body">
+            <h4 class="card-title">@post.PostDate</h4>
+            <p>@post.Content</p>
 
-    </div>
+        </div>
+    }
+
 }
+else
+{
+    <h3>Check back later, there aren't any posts yet!</h3>
+
+}
+
 

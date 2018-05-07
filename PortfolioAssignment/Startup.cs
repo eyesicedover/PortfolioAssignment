@@ -33,12 +33,12 @@ namespace PortfolioAssignment
         {
             services.AddMvc();
             services.AddEntityFrameworkMySql()
-                    .AddDbContext<AppDbContext>(options =>
+                    .AddDbContext<ApplicationDbContext>(options =>
                                               options
                                                    .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<AppDbContext>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>

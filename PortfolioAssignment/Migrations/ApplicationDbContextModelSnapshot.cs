@@ -7,11 +7,10 @@ using PortfolioAssignment.Models;
 
 namespace PortfolioAssignment.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
-    [Migration("20180504163312_Initial")]
-    partial class Initial
+    [DbContext(typeof(ApplicationDbContext))]
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
@@ -25,10 +24,10 @@ namespace PortfolioAssignment.Migrations
                         .IsConcurrencyToken();
 
                     b.Property<string>("Name")
-                        .HasMaxLength(127);
+                        .HasMaxLength(256);
 
                     b.Property<string>("NormalizedName")
-                        .HasMaxLength(127);
+                        .HasMaxLength(256);
 
                     b.HasKey("Id");
 
@@ -134,7 +133,7 @@ namespace PortfolioAssignment.Migrations
                         .IsConcurrencyToken();
 
                     b.Property<string>("Email")
-                        .HasMaxLength(127);
+                        .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
 
@@ -143,10 +142,10 @@ namespace PortfolioAssignment.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(127);
+                        .HasMaxLength(256);
 
                     b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(127);
+                        .HasMaxLength(256);
 
                     b.Property<string>("PasswordHash");
 
@@ -159,7 +158,7 @@ namespace PortfolioAssignment.Migrations
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")
-                        .HasMaxLength(127);
+                        .HasMaxLength(256);
 
                     b.HasKey("Id");
 
@@ -200,11 +199,7 @@ namespace PortfolioAssignment.Migrations
 
                     b.Property<DateTime>("PostDate");
 
-                    b.Property<int?>("PostId1");
-
                     b.HasKey("PostId");
-
-                    b.HasIndex("PostId1");
 
                     b.ToTable("Posts");
                 });
@@ -249,16 +244,9 @@ namespace PortfolioAssignment.Migrations
             modelBuilder.Entity("PortfolioAssignment.Models.Comment", b =>
                 {
                     b.HasOne("PortfolioAssignment.Models.Post", "Post")
-                        .WithMany()
+                        .WithMany("Comments")
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("PortfolioAssignment.Models.Post", b =>
-                {
-                    b.HasOne("PortfolioAssignment.Models.Post")
-                        .WithMany("Posts")
-                        .HasForeignKey("PostId1");
                 });
         }
     }

@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\sfaber\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\sfaber\\.nuget\\packages",
+      "C:\\Users\\epicodus\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\epicodus\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback"
     ]
   }
