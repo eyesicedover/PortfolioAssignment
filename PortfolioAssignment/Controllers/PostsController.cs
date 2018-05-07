@@ -25,7 +25,7 @@ namespace PortfolioAssignment.Controllers
 
         public IActionResult Index()
         {
-            return View(_db.Posts.Include(p => p.Comments));
+            return View(_db.Posts);
         }
 
         [Authorize]
@@ -67,16 +67,25 @@ namespace PortfolioAssignment.Controllers
 
         public IActionResult Details(int id)
         {
-            return View(_db.Posts.FirstOrDefault(y => y.PostId == id));
+            Post thisPost = _db.Posts.FirstOrDefault(y => y.PostId == id);
+
+                thisPost.Comments = _db.Comments.Where(c => c.PostId == id).ToList();
+
+            return View(thisPost);
         }
 
-        public IActionResult Delete(int id)
+        [Authorize]
+        [HttpPost]
+        public IActionResult Delete()
         {
-            Post thisPost = _db.Posts.FirstOrDefault(z => z.PostId == id);
-            _db.Posts.Remove(thisPost);
+            int id = int.Parse(Request.Form["postId"]);
+            _db.Posts.Remove(_db.Posts.FirstOrDefault(z => z.PostId == id));
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
+        [Authorize]
+        [HttpPost]
         public IActionResult DeleteAll()
         {
             IEnumerable<Post> allPosts = _db.Posts;
@@ -89,6 +98,7 @@ namespace PortfolioAssignment.Controllers
             {
                 _db.Comments.Remove(comment);
             }
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
     }

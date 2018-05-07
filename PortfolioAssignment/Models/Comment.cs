@@ -17,5 +17,15 @@ namespace PortfolioAssignment.Models
         public string Content { get; set; }
 
         public virtual Post Post { get; set; }
+
+        public Comment()
+        { }
+
+        public Comment(int postId, string author, string content)
+        {
+            PostId = postId;
+            Author = author;
+            Content = content;
+        }
     }
 }
