@@ -3,11 +3,13 @@
 }
 @model IEnumerable<PortfolioAssignment.Models.Repository>
 
-<br />
+
 <h2>@ViewData["Title"]</h2>
+<br />
 
 @foreach (var repo in Model)
 {
     <p>Repository:<a href=@repo.Html_Url> @Html.DisplayFor(modelItem => repo.Name)</a></p>
     <p>Description: @Html.DisplayFor(modelItem => repo.Description)</p>
+    <hr />
 }

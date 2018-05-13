@@ -20,6 +20,11 @@ namespace PortfolioAssignment.Controllers
             return View();
         }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
         public IActionResult Github()
         {
             var starRepos = Repository.GetRepositories();

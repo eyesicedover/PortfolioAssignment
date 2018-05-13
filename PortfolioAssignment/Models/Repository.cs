@@ -18,7 +18,7 @@ namespace PortfolioAssignment.Models
         public static List<Repository> GetRepositories()
         {
             var client = new RestClient("https://api.github.com");
-            var request = new RestRequest("search/repositories?q=user:eyesicedover");
+            var request = new RestRequest("search/repositories?q=user:eyesicedover&sort=stars&order=desc");
             var response = new RestResponse();
 
             request.AddHeader("User-Agent", "eyesicedover");
