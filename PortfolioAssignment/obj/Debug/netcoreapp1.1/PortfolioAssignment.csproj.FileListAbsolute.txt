@@ -1,7 +1,6 @@
 C:\Users\sfaber\Desktop\Projects\PortfolioAssignment\PortfolioAssignment\obj\Debug\netcoreapp1.1\PortfolioAssignment.csproj.CoreCompileInputs.cache
 C:\Users\sfaber\Desktop\Projects\PortfolioAssignment\PortfolioAssignment\obj\Debug\netcoreapp1.1\PortfolioAssignment.AssemblyInfoInputs.cache
 C:\Users\sfaber\Desktop\Projects\PortfolioAssignment\PortfolioAssignment\obj\Debug\netcoreapp1.1\PortfolioAssignment.AssemblyInfo.cs
-C:\Users\sfaber\Desktop\Projects\PortfolioAssignment\PortfolioAssignment\obj\Debug\netcoreapp1.1\PortfolioAssignment.csprojResolveAssemblyReference.cache
 C:\Users\sfaber\Desktop\Projects\PortfolioAssignment\PortfolioAssignment\bin\Debug\netcoreapp1.1\PortfolioAssignment.deps.json
 C:\Users\sfaber\Desktop\Projects\PortfolioAssignment\PortfolioAssignment\bin\Debug\netcoreapp1.1\PortfolioAssignment.runtimeconfig.json
 C:\Users\sfaber\Desktop\Projects\PortfolioAssignment\PortfolioAssignment\bin\Debug\netcoreapp1.1\PortfolioAssignment.runtimeconfig.dev.json
@@ -20,3 +19,4 @@ C:\Users\epicodus\Desktop\Projects\PortfolioAssignment\PortfolioAssignment\obj\D
 C:\Users\epicodus\Desktop\Projects\PortfolioAssignment\PortfolioAssignment\obj\Debug\netcoreapp1.1\PortfolioAssignment.AssemblyInfo.cs
 C:\Users\epicodus\Desktop\Projects\PortfolioAssignment\PortfolioAssignment\obj\Debug\netcoreapp1.1\PortfolioAssignment.dll
 C:\Users\epicodus\Desktop\Projects\PortfolioAssignment\PortfolioAssignment\obj\Debug\netcoreapp1.1\PortfolioAssignment.pdb
+C:\Users\sfaber\Desktop\Projects\PortfolioAssignment\PortfolioAssignment\obj\Debug\netcoreapp1.1\PortfolioAssignment.csprojAssemblyReference.cache

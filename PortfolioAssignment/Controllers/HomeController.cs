@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PortfolioAssignment.Models;
 
 namespace PortfolioAssignment.Controllers
 {
@@ -17,6 +18,12 @@ namespace PortfolioAssignment.Controllers
         {
 
             return View();
+        }
+
+        public IActionResult Github()
+        {
+            var starRepos = Repository.GetRepositories();
+            return View(starRepos);
         }
     }
 }
