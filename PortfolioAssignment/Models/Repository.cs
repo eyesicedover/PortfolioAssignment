@@ -18,7 +18,7 @@ namespace PortfolioAssignment.Models
         public static List<Repository> GetRepositories()
         {
             var client = new RestClient("https://api.github.com");
-            var request = new RestRequest("search/repositories?q=user:eyesicedover&sort=stars&order=desc");
+            var request = new RestRequest("users/eyesicedover/starred?direction=asc&per_page=3");
             var response = new RestResponse();
 
             request.AddHeader("User-Agent", "eyesicedover");
@@ -28,9 +28,9 @@ namespace PortfolioAssignment.Models
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
 
-            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
+            JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(response.Content);
 
-            var repos = JsonConvert.DeserializeObject<List<Repository>>(jsonResponse["items"].ToString());
+            var repos = JsonConvert.DeserializeObject<List<Repository>>(jsonResponse.ToString());
             return repos;
         }
 
