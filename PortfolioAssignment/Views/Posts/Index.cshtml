@@ -47,7 +47,7 @@
             </div>
             <div class="col-sm-4">
                 <form action="/Posts/Delete" method="post">
-                    <input type="text" name="postId" value="@post.PostId" />
+                    <input type="hidden" name="postId" value="@post.PostId" />
                     <button class="btn btn-danger" type="submit">Delete This Post</button>
                 </form>
             </div>

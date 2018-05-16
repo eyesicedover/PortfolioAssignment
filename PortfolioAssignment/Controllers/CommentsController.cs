@@ -30,5 +30,14 @@ namespace PortfolioAssignment.Controllers
             _db.SaveChanges();
             return RedirectToAction("Details", "Posts", new { id = newComment.PostId });
         }
+
+        public IActionResult Delete()
+        {
+            int postId = int.Parse(Request.Form["postId"]);
+            int commentId = int.Parse(Request.Form["commentId"]);
+            _db.Comments.Remove(_db.Comments.FirstOrDefault(z => z.CommentId == commentId));
+            _db.SaveChanges();
+            return RedirectToAction("Details", "Posts", new { id = postId });
+        }
     }
 }

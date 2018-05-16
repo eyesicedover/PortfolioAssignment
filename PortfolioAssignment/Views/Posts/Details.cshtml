@@ -19,6 +19,14 @@
             {
                 <p><i>@comment.Author</i> says:</p>
                 <p>@comment.Content</p>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form action="/Comments/Delete" method="post">
+                        <input type="hidden" name="postId" value="@Model.PostId" />
+                        <input type="hidden" name="commentId" value="@comment.CommentId" />
+                        <button class="btn btn-danger">Delete Comment</button>
+                    </form>
+                }
                 @if (count == 1)
                 {
                     count++;
