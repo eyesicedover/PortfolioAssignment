@@ -3,6 +3,17 @@
 }
 @model IEnumerable<PortfolioAssignment.Models.Post>
 
+<script type="text/javascript">
+    $.ajax({
+        type: 'GET',
+        datatype: 'html',
+        url: '@Url.Action("AllPosts")',
+        success: function (result) {
+            $('#result').html(result);
+        }
+    });
+</script>
+
 <br />
 <h3>Welcome to My Blog</h3>
 <hr />
@@ -15,54 +26,21 @@
             </div>
             <div class="col-sm-4">
                 <form action="/Posts/Create" method="get">
-                    <button class="btn btn-primary">Create</button>
+                    <button class="btn btn-primary">Create Post</button>
                 </form>
             </div>
             <div class="col-sm-4">
                 <form action="/Posts/DeleteAll" method="post">
-                    <button class="btn btn-danger">Delete All</button>
+                    <button class="btn btn-danger">Delete All Posts</button>
                 </form>
             </div>
             <div class="col-sm-2">
             </div>
         </div>
     </div>
-}
-@if (Model.Any())
-{
-    @foreach (var post in Model)
-    {
-    <div class="card card-body">
-        <h4 class="card-title">@post.PostDate</h4>
-        <p>@post.Content</p>
-        <p><a href="/Posts/Details/@post.PostId">Comments</a></p>
 
-        @if (User.Identity.IsAuthenticated)
-    {
-        <div class="row">
-            <div class="col-sm-2">
-            </div>
-            <div class="col-sm-4">
-                <a href="/Posts/Edit/@post.PostId" class="btn btn-success">Edit</a>
-            </div>
-            <div class="col-sm-4">
-                <form action="/Posts/Delete" method="post">
-                    <input type="hidden" name="postId" value="@post.PostId" />
-                    <button class="btn btn-danger" type="submit">Delete This Post</button>
-                </form>
-            </div>
-            <div class="col-sm-2">
-            </div>
-        </div>
 }
-    </div>
-    }
-}
-else
-{
-    <div class="card card-body">
-        <h4>Check back later, there aren't any posts yet!</h4>
-    </div>
-}
+
+<div id="result"></div>
 
 

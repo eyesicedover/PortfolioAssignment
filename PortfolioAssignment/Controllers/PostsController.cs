@@ -25,7 +25,7 @@ namespace PortfolioAssignment.Controllers
 
         public IActionResult Index()
         {
-            return View(_db.Posts);
+            return View();
         }
 
         [Authorize]
@@ -100,6 +100,16 @@ namespace PortfolioAssignment.Controllers
             }
             _db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public IActionResult AllPosts()
+        {
+            return View(_db.Posts);
+        }
+
+        public IActionResult AdminFunctions()
+        {
+            return View();
         }
     }
 }
